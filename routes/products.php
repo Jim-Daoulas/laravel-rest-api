@@ -1,13 +1,12 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 
-Route::get("", [ProductController::class, "index"]);
-Route::post("", [ProductController::class, "create"]);
+Route::get("", [ProductController::class, 'index']);
+Route::post("", [ProductController::class, 'store']);
 
-Route::prefix("{id}")->group(function () {
-    Route::get("", [ProductController::class, "show"]);
-    Route::put("", [ProductController::class, "update"]);
-    Route::delete("", [ProductController::class, "delete"]);
+Route::prefix("{id}")->group(function(){
+    Route::get("", [ProductController::class, 'show']);
+    Route::put("", [ProductController::class, 'update']);
+    Route::delete("", [ProductController::class, 'destroy']);
 });
